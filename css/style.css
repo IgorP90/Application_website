@@ -23,7 +23,8 @@ h1{
 }
 .c2{
 }
-.c2 input{
+#inputText_textarea{
+    font-size: 30px;
     width: 100%;
     height: 100%;
 
