@@ -19,14 +19,30 @@ h1{
     width: 33.33%;
     height: 800px;
 }
-.c1{
+.main button{
+    display: block;
 }
-.c2{
+.topBlock{
+    display: flex;
+    margin:5px 10px;
+    width: 100%;
+    height: 50px;
+}
+.findText_input{
+    min-width: 500px;
+    font-size: 30px;
+}
+.leftBlock{
+}
+.middleBlock{
+}
+.rightBlock{
 }
 #inputText_textarea{
     font-size: 30px;
     width: 100%;
     height: 100%;
-
 }
+
+
 
