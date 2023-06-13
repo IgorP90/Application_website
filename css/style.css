@@ -36,6 +36,13 @@ h1{
 }
 .middleBlock{
 }
+.inputText_p{
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: url(../Images/besshovnaya-tekstura-bumagi.jpg);
+    background-repeat: repeat;
+}
 .rightBlock{
 }
 #inputText_textarea{

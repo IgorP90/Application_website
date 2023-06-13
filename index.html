@@ -33,22 +33,20 @@
             <label for="">Перевести в регистр:</label>
             <br>
             <label for="">Все заглавные слова</label>
-            <input type="radio" name="toLetterCase">
+            <input type="radio" value="toLetterCaseHeadwords" name="toLetterCase">
             <br>
             <label for="">Весь текст в верхний</label>
-            <input type="radio" name="toLetterCase">
+            <input type="radio" value="toLetterCaseUppercase" name="toLetterCase">
             <br>
             <label for="">Весь текст в нижний</label>
-            <input type="radio" name="toLetterCase">
-            <button>>></button>
+            <input type="radio" value="toLetterCaseLowercase" name="toLetterCase">
+            <button class="toLetterCase_btn">>></button>
             <button>снять</button>
         </div>
-        <div class="middleBlock">
-            <textarea name="Input text" id="inputText_textarea" cols="30" rows="10">Какой то текст</textarea>
-            <!-- <textarea class="inputText_input" type="text" > -->
+        <div class="middleBlock">  
+            <p class="inputText_p" contenteditable="true">Какой то текст</p>
         </div>
-            <div class="rightBlock">
-
+        <div class="rightBlock">
         </div>
     </div>  
     <script src="js/script.js"></script>
