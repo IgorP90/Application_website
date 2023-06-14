@@ -12,10 +12,11 @@
         <h1>Заголовок</h1>
         <label for="">Поиск</label>
         <input class="findText_input" type="text">
-        <button class="find_btn">>></button>
+        <button><<</button>
+        <button>>></button>
     </div>
     <div class="main">    
-        <div class="leftBlock">   
+        <div class="leftBlock">  
             <button class="select_all_btn">Выделить весь текст</button>
             <br>
             <button class="b3">Выделить элементы</button>
@@ -42,9 +43,27 @@
             <input type="radio" value="toLetterCaseLowercase" name="toLetterCase">
             <button class="toLetterCase_btn">>></button>
             <button>снять</button>
+            <br>
+            <select name="sss" id="">
+                <option value="">fontstyle 1</option>
+                <option value="">fontstyle 2</option>
+            </select>
+            <br>
+            <input id="fontSize_input" type="number" min="10" max="60" value="30">Размер шрифта
+            <br>
+            <button class="deleteExtraSpaces_btn">Удалить лишние пробелы</button>
+            <br>
+            <button class="save_btn">Сохранить</button>в
+            <select name="extension" id="">
+                <option value="">.txt</option>
+                <option value="">.pdf</option>
+                <option value="">.rtf</option>
+            </select>
         </div>
         <div class="middleBlock">  
-            <p class="inputText_p" contenteditable="true">Какой то текст</p>
+            <p class="inputText_p" contenteditable="true">
+                Какой то текст. Ещё текст
+            </p>
         </div>
         <div class="rightBlock">
         </div>
