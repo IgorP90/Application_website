@@ -12,8 +12,8 @@
         <h1>Заголовок</h1>
         <label for="">Поиск</label>
         <input class="findText_input" type="text">
-        <button><<</button>
-        <button>>></button>
+        <button class="back_btn"></button>
+        <button class="forward_btn"></button>
     </div>
     <div class="main">    
         <div class="leftBlock">  
@@ -44,9 +44,9 @@
             <button class="toLetterCase_btn">>></button>
             <button>снять</button>
             <br>
-            <select name="sss" id="">
-                <option value="">fontstyle 1</option>
-                <option value="">fontstyle 2</option>
+            <select name="fontFamily" id="fontFamily_select">
+                <option value="josephina_FlourishesC">Josephina FlourishesC</option>
+                <option value="theano_Didot">Theano Didot</option>
             </select>
             <br>
             <input id="fontSize_input" type="number" min="10" max="60" value="30">Размер шрифта
@@ -54,15 +54,16 @@
             <button class="deleteExtraSpaces_btn">Удалить лишние пробелы</button>
             <br>
             <button class="save_btn">Сохранить</button>в
-            <select name="extension" id="">
-                <option value="">.txt</option>
-                <option value="">.pdf</option>
-                <option value="">.rtf</option>
+            <a download="sdsdsds">sdsdsdsds</a>
+            <select name="extension" id="extension_select">
+                <option value="txt">.txt</option>
+                <option value="pdf">.pdf</option>
+                <option value="rtf">.rtf</option>
             </select>
         </div>
         <div class="middleBlock">  
             <p class="inputText_p" contenteditable="true">
-                Какой то текст. Ещё текст
+                Какой то текст. Ещё  текст
             </p>
         </div>
         <div class="rightBlock">
