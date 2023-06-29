@@ -7,14 +7,17 @@ document.querySelector('.findText_input').oninput = function(){ //-
     if(wtext.value != ''){
         etext.innerHTML = etext.innerHTML.replace(RegExp(wtext.value,'ig'),'<mark>$&</mark>')
     }
-    else if(wtext.value == '/'){
+    else if(wtext.value == '/[К]/'){
         console.log('это рег выражение')
     }
 }
-    
 
-document.querySelector('.select_all_btn').onclick = function(){  //-
-    etext.innerHTML.select()
+document.querySelector('.select_all_btn').onclick = function(){ //+
+    const range = document.createRange()
+    range.selectNodeContents(etext)
+    const sel = window.getSelection()
+    sel.removeAllRanges()
+    sel.addRange(range)
 }
 
 document.querySelector('.replace_btn').onclick = function(){ //+
@@ -24,14 +27,15 @@ document.querySelector('.replace_btn').onclick = function(){ //+
 
 document.querySelector('.countAllChars_btn').onclick = function(){ //+
     const check = document.querySelector('#spaceCheckbox_input')
+    let s
+    
     if(!check.checked){
-        let s = etext.innerHTML.match(/\S/g).length
-        console.log('Число символов - ' + s)
+        s = etext.innerHTML.match(/\S/g).length
     }
     else{
-        let s = etext.innerHTML.length
-        console.log('Число символов - ' + s)
-    }  
+        s = etext.innerHTML.length
+    }
+    output(s)
 }
 
 document.querySelector('.cut_btn').onclick = function(){ //+
@@ -43,20 +47,28 @@ document.querySelector('.toLetterCase_btn').onclick = function(){ //-
     let check = document.getElementsByName('toLetterCase')
     for(const c of check){
         if(c.value == 'toLetterCaseHeadwords' && c.checked){
-            
+            let r = /\w/g   
+            etext.innerHTML = etext.innerHTML.replace(r,r.toUpperCase) 
         }
         else if(c.value == 'toLetterCaseUppercase' && c.checked){
-            etext.innerHTML = etext.innerHTML.toUpperCase();
+            etext.innerHTML = etext.innerHTML.toUpperCase()
         }  
         else if(c.value == 'toLetterCaseLowercase' && c.checked){
-            etext.innerHTML = etext.innerHTML.toLowerCase();
+            etext.innerHTML = etext.innerHTML.toLowerCase()
         } 
     }
     backup()
 }
 
-document.querySelector('#fontFamily_select').oninput = function(){ //+
-    const fontFamilies = document.querySelector('#fontFamily_select')
+document.querySelector('.cleanRadio_btn').onclick = () =>{ //+
+    let check = document.getElementsByName('toLetterCase')
+    check.forEach(element => {
+        element.checked = false
+    })
+}
+
+document.querySelector('.fontFamily_select').oninput = function(){ //+
+    const fontFamilies = document.querySelector('.fontFamily_select')
     if(fontFamilies.options[fontFamilies.selectedIndex].value == 'josephina_FlourishesC'){
         etext.style.fontFamily = 'Josephina FlourishesC'
     }
@@ -66,16 +78,16 @@ document.querySelector('#fontFamily_select').oninput = function(){ //+
     
 }
 
-document.querySelector('#fontSize_input').oninput = function(){ //+
-    etext.style.fontSize = document.querySelector('#fontSize_input').value+"px"
+document.querySelector('.fontSize_input').oninput = function(){ //+
+    etext.style.fontSize = document.querySelector('.fontSize_input').value+"px"
 }
 
-document.querySelector('.deleteExtraSpaces_btn').onclick = function(){
-    let r = /\s+/g
-    etext.innerHTML = etext.innerHTML.replace(r,'')
+document.querySelector('.deleteExtraSpaces_btn').onclick = function(){ //+
+    let r = /\s{2,}/g
+    etext.innerHTML = etext.innerHTML.replace(r,' ')
 }
 //#region Backup
-let ar= []
+let ar= [] //-
 let i = 0
 
 document.querySelector('.back_btn').onclick = function(){
@@ -109,20 +121,22 @@ function backup(){
 }
 backup()
 //#endregion
-//#region Save
-let extension = ''
 
-document.querySelector('#extension_select').oninput = function(){
-    const extensions = document.querySelector('#extension_select')
-    if(extensions.options[extensions.selectedIndex].value == 'txt'){
+//#region Save
+let extension = '.txt' //-
+
+document.querySelector('.extension_select').oninput = function(){
+    const extensions = document.querySelector('.extension_select')
+    const opt = extensions.options[extensions.selectedIndex].value
+    if(opt == 'txt'){
         console.log('txt')    
         extension = '.txt'
     }
-    else if(extensions.options[extensions.selectedIndex].value == 'pdf'){
+    else if(opt == 'pdf'){
         console.log('pdf')
         extension = '.pdf'
     }
-    else if(extensions.options[extensions.selectedIndex].value == 'rtf'){
+    else if(opt == 'rtf'){
         console.log('rtf')
         extension = '.rtf'
     }
@@ -132,15 +146,40 @@ document.querySelector('#extension_select').oninput = function(){
 //     window.showSaveFilePicker(etext.innerHTML);
 // }
 
-document.querySelector('.save_btn').onclick = async function getNewFileHandle() {
-    const opts = {
-      types: [
+document.querySelector('.save_btn').onclick = async function getNewFileHandle(){ //-
+    try {
+        const [fileHandle] = await window.showSaveFilePicker(
         {
-          description: "Text file",
-          accept: { "text/plain": [extension] },
-        },
-      ],
-    };
-    return await window.showSaveFilePicker(opts);
+            suggestedName: 'name' + extension,
+            types: [
+                {
+                    description: "Text file",
+                    accept: { "text/plain": [extension] },
+                },
+            ],
+            excludeAcceptAllOption: true
+        });
+
+        let blob = new Blob([etext.innerHTML], {type: "text/plain"})
+
+        let file = await fileHandle.getFile()
+        let contents = await file.text()
+        etext.innerHTML = contents
+
+        const writable = await fileHandle.createWritable().write(blob)
+        await writable.close();
+    } 
+    catch (e) {
+        output(e)
+        console.log('Error= '+e)
+    }
   }
 //#endregion
+
+function output(str){ //+
+    const out = document.querySelector('.outConsole_output')
+    out.innerHTML = ">> "+str
+}
+
+document.querySelector('.inputText_p').oninput =()=> backup()
+    

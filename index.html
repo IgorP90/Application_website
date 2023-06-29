@@ -9,66 +9,66 @@
 </head>
 <body>
     <div class="topBlock">
-        <h1>Заголовок</h1>
-        <label for="">Поиск</label>
-        <input class="findText_input" type="text">
-        <button class="back_btn"></button>
-        <button class="forward_btn"></button>
+        <!-- <h1>Заголовок</h1> -->
+        <div class="topBlock-align">
+            <label class="search_label" for="">ПОИСК</label>
+            <input class="findText_input" type="text" placeholder="текст или /рег.выр/">
+            <button class="back_btn"></button>
+            <button class="forward_btn"></button>
+        </div>
+        
     </div>
-    <div class="main">    
+    <main class="main">    
         <div class="leftBlock">  
-            <button class="select_all_btn">Выделить весь текст</button>
-            <br>
-            <button class="b3">Выделить элементы</button>
-            <br>
-            <button class="cut_btn">Вырезать элементы</button>
-            <br>
-            <button class="countAllChars_btn">Посчитать кол-во символов</button>
-            <label for="">С пробелами</label>
-            <input type="checkbox" name="withSpaces" id="spaceCheckbox_input">
-            <br>
-            <label for="">Заменить элементы на:</label>
-            <input class="replacementText_input" type="text">
-            <button class="replace_btn">>></button>
-            <br>
-            <label for="">Перевести в регистр:</label>
-            <br>
-            <label for="">Все заглавные слова</label>
-            <input type="radio" value="toLetterCaseHeadwords" name="toLetterCase">
-            <br>
-            <label for="">Весь текст в верхний</label>
-            <input type="radio" value="toLetterCaseUppercase" name="toLetterCase">
-            <br>
-            <label for="">Весь текст в нижний</label>
-            <input type="radio" value="toLetterCaseLowercase" name="toLetterCase">
-            <button class="toLetterCase_btn">>></button>
-            <button>снять</button>
-            <br>
-            <select name="fontFamily" id="fontFamily_select">
-                <option value="josephina_FlourishesC">Josephina FlourishesC</option>
-                <option value="theano_Didot">Theano Didot</option>
-            </select>
-            <br>
-            <input id="fontSize_input" type="number" min="10" max="60" value="30">Размер шрифта
-            <br>
-            <button class="deleteExtraSpaces_btn">Удалить лишние пробелы</button>
-            <br>
-            <button class="save_btn">Сохранить</button>в
-            <a download="sdsdsds">sdsdsdsds</a>
-            <select name="extension" id="extension_select">
-                <option value="txt">.txt</option>
-                <option value="pdf">.pdf</option>
-                <option value="rtf">.rtf</option>
-            </select>
+            <div>
+                <label class="replacementText_label" for="replacementText">Заменить элементы на:</label>
+                <input class="replacementText_input" type="text" name="replacementText" placeholder="введите текст">
+                <button class="replace_btn" class="btn_2"></button>
+            </div> 
+            <button class="select_all_btn" class="btn_1">Выделить весь текст</button>
+            <button class="cut_btn" class="btn_1">Вырезать элементы</button>
+            <div>
+                <button class="countAllChars_btn" class="btn_1">Посчитать кол-во символов</button>
+                <label for="withSpaces">c пробелами</label>
+                <input type="checkbox" name="withSpaces" id="spaceCheckbox_input">
+            </div>
+            <button class="deleteExtraSpaces_btn" class="btn_1">Удалить лишние пробелы</button>
+            <div>
+              <label for="">Перевести в регистр:</label>
+                <label for="toLetterCase">Все заглавные слова</label>
+                <input type="radio" value="toLetterCaseHeadwords" name="toLetterCase">
+                <label for="toLetterCase">Весь текст в верхний</label>
+                <button class="toLetterCase_btn" class="btn_2"></button>
+                <input type="radio" value="toLetterCaseUppercase" name="toLetterCase">
+                <label for="toLetterCase">Весь текст в нижний</label>
+                <input type="radio" value="toLetterCaseLowercase" name="toLetterCase">
+                <button class="cleanRadio_btn" class="btn_2">сн</button>
+            </div> 
+            
         </div>
         <div class="middleBlock">  
-            <p class="inputText_p" contenteditable="true">
-                Какой то текст. Ещё  текст
-            </p>
+            <p class="inputText_p" contenteditable="true">Какой то текст. Ещё текст</p>
         </div>
-        <div class="rightBlock">
+        <div class="rightBlock"> 
+            <div>
+                <button class="save_btn">Сохранить</button>
+                <label class="in_label" for="">в</label>
+                <select class="extension_select" name="extension" >
+                    <option value="text/plain">.txt</option>
+                    <option value="pdf">.pdf</option>
+                    <option value="rtf">.rtf</option>
+                </select>
+                <br>
+                <select class="fontFamily_select" name="fontFamily" >
+                    <option value="josephina_FlourishesC">Josephina FlourishesC</option>
+                    <option value="theano_Didot">Theano Didot</option>
+                </select>
+                    <input class="fontSize_input" type="number" min="10" max="60" value="30">
+                    
+            </div>
+            <output class="outConsole_output">>></output>
         </div>
-    </div>  
+    </main>  
     <script src="js/script.js"></script>
 </body>
 </html>

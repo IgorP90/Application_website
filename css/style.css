@@ -21,59 +21,184 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
-
 h1{
     color: red;
 }
-.main{
-    border: 5px solid black;
-    display: flex;
-}
-.main div{  
-    border: 2px solid white;
-    width: 33.33%;
-    height: 800px;
-}
-.main button{
-    display: block;
-}
 .topBlock{
     display: flex;
-    margin:5px 10px;
     width: 100%;
-    height: 50px;
+    height: 113px;  
+}
+.topBlock-align{
+    display: flex;
+    margin-left: 16%;
+    align-items: center;
+    
+}
+.search_label{
+    margin:39px -32px 39px -7px;
+    transform: rotate(-90deg);
+    width: 80px;
+    height: 35px;
+    color: #FF6341;
+    font-size: 20px;
+    text-align: center;
+}
+.findText_input{
+    width: 500px;
+    height: 80px;
+    font-size: 35px;
+    text-align: left;
+    color: #000;
 }
 .topBlock button{
-    border: 1px solid black;
-    width: 50px;
-    height: auto;
-    background-color: white;
+    background-color: #fff;
     background-size: cover;
+    background-repeat: no-repeat; 
+    border: 1px solid #000;
+    width: 80px;
+    height: 80px;
+    
 }
 .back_btn{
-    background-image: url(../Images/arrow.png); 
+    margin: auto 0 auto 20px;
+    background-image: url(../Images/arrow.png);
 }
 .forward_btn{
     background-image: url(../Images/arrow2.png);
+    margin: auto 0 auto 5px;
 }
-.findText_input{
-    min-width: 500px;
-    font-size: 30px;
+.main{
+    display: flex;
+    border: 1px solid black;
+    height: 820px;
+}
+.leftBlock{
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    align-items: end;
+}
+.replacementText_label{
+    display: flex;
+    margin: 50px 50px 0px 0px;
+}
+.replacementText_input{
+    display: inline-flex;
+    width: 200px;
+    height: 30px;
+    margin: 10px 0px 0px 0px;
+}
+input{
+    display: flex;
+}
+.leftBlock button{
+    display: flex;
+    height: 30px;
+    font-size: 15px;
+    text-align:center;
+    margin: 23px 50px 0px 0px;
+    background-color: #FFF;
+    border-radius: 10px 10px 0 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+} 
+.toLetterCase_btn,
+.cleanRadio_btn, 
+.replace_btn{
+    width: 30px;
+}
+.toLetterCase_btn{
+    background-image: url(../Images/Enter_button.png);
+} 
+.cleanRadio_btn{
+    background-image: url();
+} 
+.replace_btn{
+    background-image: url(../Images/change.png);
+    display: flex;
+    border-radius: 0px 50px 0 0px;
+}
+.select_all_btn,
+.cut_btn, 
+.countAllChars_btn, 
+.deleteExtraSpaces_btn{
+    width: 250px;  
+}
+.select_all_btn{
+    background-image: url(../Images/highlightmarker-orange-icon.png);
+    margin: 50px 50px 0px 0px;
+}
+.cut_btn{
+    background-image: url(../Images/cut.png);
+}
+.countAllChars_btn{
+    background-image: url(../Images/153-icon-icons8-Numbers-100.png);
+}
+.deleteExtraSpaces_btn{
+    background-image: url(../Images/space-bar-icon.png);
 }
 
-.leftBlock{
-}
 .middleBlock{
+    border: 2px solid #FFF;
+    background-color: #FFF;
+    background-image:url(../Images/paper.jpg);
+    border: 2px solid white;
+    min-width: 640px;
 }
-.inputText_p{
+.inputText_p{ 
+    white-space: pre-wrap;
+	tab-size: 3;
     width: 100%;
     height: 100%;
     font-size: 30px;
-    background-image: url(../Images/paper.jpg);
-    background-repeat: repeat;
-    overflow: auto;
+    opacity: 100%;
 }
-.rightBlock{
+.rightBlock{  
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 33%;
+}
+.save_btn{
+    margin: 50px 0px 0px 50px;
+    width: 200px;
+    height: 30px;
+    border-radius:10px 0 0 0;
+}
+.in_label{
+    margin: 0px 20px;
+}
+.extension_select{
+    display: inline-flex;
+    width: 50px;
+    height: 30px;
+    border-radius:0 10px 10px 0px;
+}
+.fontFamily_select{
+    margin: 50px 0px 0px 50px;
+    width: 230px;
+    height: 30px;
+    border-radius:10px 0 0 0;
+}
+.fontSize_input{
+    display: inline-flex;
+    margin-left: 20px;
+    width: 50px;
+    height: 30px;
+    border-radius:0 10px 10px 0px;
+}
+
+.outConsole_output{
+    margin: auto 10px 10px 10px;
+    background-color: grey;
+    border: 1px solid black;
+    color: white;
+    font-size: 25px;
+    text-align:left;
+    width: 100%;
+    height: 30px;
 }
 
 
